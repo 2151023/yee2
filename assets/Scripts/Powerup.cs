@@ -14,6 +14,7 @@ public class Powerup : NetworkBehaviour
     [ServerCallback]
     private void OnTriggerEnter(Collider other)
     {
+        Debug.Log("Hello there fellow human");
         Debug.Log(gameObject.GetInstanceID() + ": Collided with " + other.ToString());
 
         if (other.gameObject.CompareTag("Player"))
