@@ -83,7 +83,7 @@ public class EnemyStatic : NetworkBehaviour
     [ServerCallback]
     private void OnTriggerEnter(Collider player)
     {
-        if (!player.gameObject.CompareTag("Enemy")) return;
+        if (player.gameObject.CompareTag("GGGGGGGGGGGGGGGG")) return;
 
         PlayersInArea.Add(player.transform);
         HasTargetListChanged = true;
