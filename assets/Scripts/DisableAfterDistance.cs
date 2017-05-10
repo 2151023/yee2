@@ -7,12 +7,7 @@ public class DisableAfterDistance : NetworkBehaviour
     private Vector3 _initialPosition;
     private bool _isStartingPositionSet;
 
-    public void Initialise()
-    {
-        _initialPosition = transform.position;
-        gameObject.SetActive(true);
-        _isStartingPositionSet = true;
-    }
+    
 
     [ServerCallback]
     private void Update()
