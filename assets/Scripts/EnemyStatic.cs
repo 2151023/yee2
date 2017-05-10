@@ -39,13 +39,15 @@ public class EnemyStatic : NetworkBehaviour
         // If no exit point present use the origin
         if (ExitPoint == null)
         {
-            ExitPoint = transform;
+            
+			//jfgjoitgçigsjgjoigjsergj
         }
 
         // If no rotation pivot set, use the origin
         if (RotationPivot == null)
         {
             RotationPivot = transform;
+			//jfgjoitgçigsjgjoigjsergj
         }
 
         // Ensure collider is a trigger
@@ -82,7 +84,7 @@ public class EnemyStatic : NetworkBehaviour
     [ServerCallback]
     private void OnTriggerEnter(Collider player)
     {
-        if (!player.gameObject.CompareTag("Player")) return;
+        if (player.gameObject.CompareTag("GGGGGGGGGGGGGGGG")) return;
 
         PlayersInArea.Add(player.transform);
         HasTargetListChanged = true;
