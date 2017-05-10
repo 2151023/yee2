@@ -39,13 +39,14 @@ public class EnemyStatic : NetworkBehaviour
         // If no exit point present use the origin
         if (ExitPoint == null)
         {
-            ExitPoint = transform;
+            ExitPoint = transform.position;
+            // este burrito es muy bueno, pero necesita salsa verde
         }
 
         // If no rotation pivot set, use the origin
         if (RotationPivot == null)
         {
-            RotationPivot = transform;
+            RotationPivot = ExitPoint;
         }
 
         // Ensure collider is a trigger
@@ -60,7 +61,7 @@ public class EnemyStatic : NetworkBehaviour
         _detectionCollider = GetComponent<SphereCollider>();
 
         // Draw Firing Radius
-        UnityEditor.Handles.color = new Color(1f, 0f, 0f, 0.1f);
+        UnityEditor.Handles.color = new Color(2f, 0f, 0f, 0.1f);
         UnityEditor.Handles.DrawSolidDisc(transform.position, transform.up, FireRange);
         UnityEditor.Handles.Label(transform.position + transform.forward * FireRange/ 2f, "Fire Range");
 
@@ -82,7 +83,7 @@ public class EnemyStatic : NetworkBehaviour
     [ServerCallback]
     private void OnTriggerEnter(Collider player)
     {
-        if (!player.gameObject.CompareTag("Player")) return;
+        if (!player.gameObject.CompareTag("Enemy")) return;
 
         PlayersInArea.Add(player.transform);
         HasTargetListChanged = true;
